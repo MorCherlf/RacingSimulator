@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RacingSimulator", "RacingSimulator.csproj", "{D02F85D2-C25A-4E9E-98DB-3B5B3638445A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RacingSimulator.Desktop", "..\RacingSimulator.Desktop\RacingSimulator.Desktop.csproj", "{6CF38E79-201F-4634-87EA-5A05455FEA33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D02F85D2-C25A-4E9E-98DB-3B5B3638445A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02F85D2-C25A-4E9E-98DB-3B5B3638445A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02F85D2-C25A-4E9E-98DB-3B5B3638445A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02F85D2-C25A-4E9E-98DB-3B5B3638445A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF38E79-201F-4634-87EA-5A05455FEA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF38E79-201F-4634-87EA-5A05455FEA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF38E79-201F-4634-87EA-5A05455FEA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF38E79-201F-4634-87EA-5A05455FEA33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D352153-3057-415E-934C-A4EA96C6E7B2}
+	EndGlobalSection
+EndGlobal
