@@ -3,14 +3,95 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:RacingSimulator.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600"
              x:Class="RacingSimulator.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<Design.DataContext>
+		<vm:MainViewModel />
+	</Design.DataContext>
+
+	<StackPanel Margin="50,30,0,0">
+		<!-- Select Race Type -->
+		<TextBlock Text="Racing Type:"/>
+		<ComboBox Width="200"
+				  ItemsSource="{Binding RaceTypes}"
+				  SelectedItem="{Binding SelectedRaceType}">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+
+		<!-- Input distance -->
+		<TextBlock Text="Distance:" Margin="0,10,0,0"/>
+		<TextBox Width="200"  HorizontalAlignment="Left"
+				 Text="{Binding Distance, Mode=TwoWay}"/>
+
+		<!-- Choose Race Vehicle -->
+		<TextBlock Text="Select Racing Vehicle:" Margin="0,10,0,0"/>
+		<ComboBox Width="200"
+				  ItemsSource="{Binding AvailableTransports}"
+				  SelectedItem="{Binding SelectedTransport}">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+
+		<!-- Add Vehicle Button -->
+		<Button Content="Add Vehicle"
+				Command="{Binding AddParticipantCommand}"
+				Width="150"
+				Margin="0,10,0,0"/>
+
+		<!-- Selected Vehicles -->
+		<TextBlock Text="Selected Racing Vehicles:"/>
+		<ListBox Width="400"
+				 Height="150"
+				 HorizontalAlignment="Left"
+				 ItemsSource="{Binding Participants}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding Name}" />
+						<Button Content="Remove"
+								Command="{Binding DataContext.RemoveParticipantCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+								CommandParameter="{Binding}"
+								Margin="20,0,0,0"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<!-- Clear All Vehicles -->
+		<Button Content="Clear All Vehicles"
+            Command="{Binding ClearParticipantsCommand}"
+            Width="150"
+            Margin="0,10,0,0"/>
+
+		<!-- Select Weather -->
+		<TextBlock Text="Racing Weather:"/>
+		<ComboBox Width="200"
+				  ItemsSource="{Binding Weathers}"
+				  SelectedItem="{Binding SelectedWeather}">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+		
+		<!-- Start Button -->
+		<Button Content="Start!"
+				Command="{Binding StartRaceCommand}"
+				Width="150"
+				Margin="0,10,0,0"/>
+
+		<!-- Display Result -->
+		<TextBlock Text="{Binding Result}"
+				   Margin="0,20,0,0"/>
+	</StackPanel>
 </UserControl>
